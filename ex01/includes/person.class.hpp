@@ -1,24 +1,37 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   person.class.hpp                                   :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: yzungula <marvin@42.fr>                    +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2019/06/04 13:54:36 by yzungula          #+#    #+#             */
+/*   Updated: 2019/06/04 13:54:41 by yzungula         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #ifndef __PERSON__
 # define __PERSON__
 
 #include <iostream>
 #include <string>
+#include "date.class.hpp"
 
 class Person
 {
 private:
     /* data */
-    std::string firstname;
-    std::string lastname;
-    std::string nickname;
-    std::string login;
-    std::string postalAddress;
-    std::string email;
-    std::string phoneNumber;
-    std::string birthdate;
-    std::string favouriteMeal;
-    std::string underwearColour;
-    std::string darkestSecret;
+    std::string     firstname;
+    std::string     lastname;
+    std::string     nickname;
+    std::string     login;
+    std::string     postalAddress;
+    std::string     email;
+    std::string     phoneNumber;
+    Date            *birthdate;
+    std::string     favouriteMeal;
+    std::string     underwearColour;
+    std::string     darkestSecret;
 
 public:
     Person(/* args */);
@@ -46,8 +59,8 @@ public:
     void setPhoneNumber(std::string phone);
     std::string getPhoneNumber() const;
 
-    void setBirthdate(std::string dob);
-    std::string getBirthdate() const;
+    void setBirthdate(int day, int month, int year);
+    Date *getBirthdate() const;
 
     void setFavouriteMeal(std::string meal);
     std::string getFavouriteMeal() const;

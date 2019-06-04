@@ -1,3 +1,15 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   person.class.cpp                                   :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: yzungula <marvin@42.fr>                    +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2019/06/04 13:55:46 by yzungula          #+#    #+#             */
+/*   Updated: 2019/06/04 13:55:49 by yzungula         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "includes/person.class.hpp"
 
 Person::Person()
@@ -13,7 +25,6 @@ Person::~Person()
     this->postalAddress.clear();
     this->email.clear();
     this->phoneNumber.clear();
-    this->birthdate.clear();
     this->favouriteMeal.clear();
     this->underwearColour.clear();
     this->darkestSecret.clear();
@@ -55,4 +66,102 @@ void Person::setNickname(std::string name)
     {
         nickname = name;
     }
+}
+
+std::string Person::getNickname() const
+{
+    return (nickname);
+}
+
+void Person::setLogin(std::string loginStr)
+{
+    login = loginStr;
+}
+
+std::string Person::getLogin() const
+{
+    return (login);
+}
+
+void Person::setPostalAddress(std::string address)
+{
+    postalAddress = address;
+}
+
+std::string Person::getPostalAddress() const
+{
+    return (postalAddress);
+}
+
+void Person::setEmail(std::string mail)
+{
+    email = mail;
+}
+
+std::string Person::getEmail() const
+{
+    return (email);
+}
+
+void Person::setPhoneNumber(std::string number)
+{
+    if (number.length() == 10)
+    {
+        phoneNumber = number;
+    }
+    else
+    {
+        std::cout << "Phone number must be 10 digits long without spaces\n";
+    }
+}
+
+std::string Person::getPhoneNumber() const
+{
+    return (phoneNumber);
+}
+
+void Person::setBirthdate(int day, int month, int year)
+{
+    if ((day >= 1 && day <= 31) && (month >= 1 && month <= 12) && (year >= 1900))
+    {
+        if (month == 2 && day > 29)
+        {
+            std::cout << "Come on February does not have more than 29 days\n";
+        }
+        birthdate = new Date(day, month, year);
+    }
+}
+
+Date *Person::getBirthdate() const
+{
+    return (birthdate);
+}
+
+void Person::setFavouriteMeal(std::string meal)
+{
+    favouriteMeal = meal;
+}
+
+std::string Person::getFavouriteMeal() const
+{
+    return (favouriteMeal);
+}
+
+void Person::setUnderwearColour(std::string colour)
+{
+    underwearColour = colour;
+}
+
+std::string Person::getUnderwearColour() const
+{
+    return (underwearColour);
+}
+
+void Person::setDarkestSecret(std::string secret)
+{
+    darkestSecret = secret;
+}
+
+std::string Person::getDarkestSecret() const{
+    return (darkestSecret);
 }
