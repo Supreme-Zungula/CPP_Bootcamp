@@ -21,5 +21,38 @@ Person::~Person()
 
 void Person::setFirstname(std::string name)
 {
-    if ()
+    if (!name.empty())
+    {
+        firstname = name;
+    }
+    else
+    {
+        std::cout << "Firstname cannot be an empty string\n";
+    }
+}
+
+std::string Person::getFirstname() const
+{
+    return (firstname);
+}
+
+void Person::setLastname(std::string surname)
+{
+    if (!surname.empty())
+    {
+        lastname = surname;
+    }
+}
+
+std::string Person::getLastname() const
+{
+    return (lastname);
+}
+
+void Person::setNickname(std::string name)
+{
+    if (!name.empty())
+    {
+        nickname = name;
+    }
 }
