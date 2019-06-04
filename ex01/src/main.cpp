@@ -73,6 +73,11 @@ void addContactDetails(Phonebook &myPhonebook)
     myPhonebook.addContact(newContact);
 }
 
+void displayResults(Person *searchResults,  int matchesLen)
+{
+
+}
+
 int main()
 {
     Phonebook myPhonebook;
@@ -91,20 +96,22 @@ int main()
         else if (userInput.compare("ADD") == 0)
         {
             addContactDetails(myPhonebook);
+            std::cout << "\n";
         }
         else if (userInput.compare("SEARCH") == 0)
         {
             std::cout << "Enter contact name to search for: ";
             std::cin >> searchName;
             searchResults = myPhonebook.searchContact(searchName);
+            std::cout << "\n";
             myPhonebook.displaySearchResuslts(searchResults, myPhonebook.getNumberOfContacts());
+            std::cout << "\n";
         }
         else
         {
             std::cout << "Invalid input\n";
         }
     }
-
     /* code */
     return 0;
 }

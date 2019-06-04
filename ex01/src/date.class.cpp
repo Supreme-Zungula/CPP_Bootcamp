@@ -10,21 +10,21 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "includes/date.class.hpp"
+#include "../includes/date.class.hpp"
 
 Date::Date() {}
 
 Date::Date(int dd, int mm, int yy)
 {
-    if ((day >= 1 && day <= 31) && (month >= 1 && month <= 12) && (year >= 1900))
+    if ((dd >= 1 && dd <= 31) && (mm >= 1 && mm <= 12) && (year >= 1900))
     {
-        if (month == 2 && day > 29)
+        if (mm == 2 && dd > 29)
         {
             std::cout << "Come on February does not have more than 29 days\n";
         }
-        day = dd;
-        month = month;
-        year = yy;
+        this->day = dd;
+        this->month = mm;
+        this->year = yy;
     }
     else
     {

@@ -22,6 +22,7 @@ class Phonebook
 {
 private:
     Person contacts[8];
+    Person matchingContacts[8];
     int numberOfContacts;
 
 public:

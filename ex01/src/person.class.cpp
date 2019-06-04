@@ -10,7 +10,7 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "includes/person.class.hpp"
+#include "../includes/person.class.hpp"
 
 Person::Person()
 {

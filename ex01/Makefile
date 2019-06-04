@@ -10,21 +10,21 @@
 #                                                                              #
 # **************************************************************************** #
 
-SOURCES = src/*
-HEADERS = includes/*
+SOURCES = src/*.cpp
+HEADERS = includes/*.hpp
 COMPILER = clang++
-FLAGS = -Wall -Wextra -Werror -I $(HEADERS)
+FLAGS = -Wall -Wextra -Werror #-I $(HEADERS)
 NAME = phonebook
 
-all:
-	$(COMPILER) $(FLAGS)  $(SOURCES) -o $(NAME)
+all : $(NAME)
+
+$(NAME) : $(SOURCES)
+	$(COMPILER) $(SOURCES) $(FLAGS) -o $(NAME)
 
 clean: 
 	rm -f $(NAME)
 
 fclean: clean
-	rm -f phonebook.class.hpp.gch
-	rm -f person.class.hpp.gch
-	rm -f date.class.hpp.gch
+	rm -f $(HEADERS).gch
 
 re: fclean all

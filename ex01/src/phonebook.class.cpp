@@ -10,7 +10,7 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "phonebook.class.hpp"
+#include "../includes/phonebook.class.hpp"
 
 Phonebook::Phonebook()
 {
@@ -38,7 +38,6 @@ void Phonebook::addContact(Person newContact)
 Person *Phonebook::searchContact(std::string name)
 {
     int i = 0;
-    Person matchingContacts[8];
     int numberOfMatches = 0;
     while (i < 8)
     {
