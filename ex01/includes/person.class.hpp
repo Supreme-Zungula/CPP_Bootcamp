@@ -1,11 +1,10 @@
-#ifndef __PHONEBOOK__
-#define __PHONEBOOK__
+#ifndef __PERSON__
+# define __PERSON__
 
 #include <iostream>
 #include <string>
-#include <iomanip>
 
-class Phonebook
+class Person
 {
 private:
     /* data */
@@ -22,9 +21,9 @@ private:
     std::string darkestSecret;
 
 public:
-    Phonebook(/* args */);
-    ~Phonebook();
-    
+    Person(/* args */);
+    ~Person();
+
     void setFirstname(std::string name);
     std::string getFirstname() const;
 
@@ -58,9 +57,6 @@ public:
 
     void setDarkestSecret(std::string secret);
     std::string getDarkestSecret() const;
-
-    void addContact();
-    void searchContact(std::string name);
 };
 
 #endif
