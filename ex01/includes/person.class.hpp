@@ -28,7 +28,7 @@ private:
     std::string     postalAddress;
     std::string     email;
     std::string     phoneNumber;
-    Date            *birthdate;
+    std::string     birthdate;
     std::string     favouriteMeal;
     std::string     underwearColour;
     std::string     darkestSecret;
@@ -59,8 +59,8 @@ public:
     void setPhoneNumber(std::string phone);
     std::string getPhoneNumber() const;
 
-    void setBirthdate(int day, int month, int year);
-    Date *getBirthdate() const;
+    void setBirthdate(std::string dob);
+    std::string getBirthdate() const;
 
     void setFavouriteMeal(std::string meal);
     std::string getFavouriteMeal() const;

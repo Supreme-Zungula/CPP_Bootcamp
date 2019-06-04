@@ -54,16 +54,45 @@ Person *Phonebook::searchContact(std::string name)
 
 void Phonebook::viewContacts() const
 {
-    int     i = 0;
+    int i = 0;
     std::cout << "Index\tFirstname\tLastname\tNickname\n";
     if (numberOfContacts == 0)
     {
         std::cout << "Contact list empty\n";
     }
 
-    while (i < numberOfContacts )
+    while (i < numberOfContacts)
     {
-        
+        std::cout << std::setw(10) << i << std::setw(10) << contacts[i].getFirstname();
+        std::cout << std::setw(10) << contacts[i].getLastname();
+        std::cout << std::setw(10) << contacts[i].getNickname() << '\n';
+        i++;
     }
-    
+}
+
+void Phonebook::displaySearchResuslts(Person matchingContacts[], int numberOfMatches)
+{
+    int i = 0;
+    std::cout << "Index\t|First name\t|Last name\t|Nickname\n";
+    if (numberOfMatches == 0)
+    {
+        std::cout << "No matching results found\n";
+    }
+
+    while (i < numberOfMatches)
+    {
+        std::cout << std::setw(10) << i << std::setw(10) << matchingContacts[i].getFirstname();
+        std::cout << std::setw(10) << contacts[i].getLastname();
+        std::cout << std::setw(10) << contacts[i].getNickname() << '\n';
+        i++;
+    }
+}
+
+int Phonebook::getNumberOfContacts() const
+{
+    return (numberOfContacts);
+}
+
+void Phonebook::run()
+{
 }

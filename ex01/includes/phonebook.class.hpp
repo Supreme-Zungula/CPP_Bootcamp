@@ -30,7 +30,9 @@ public:
 
     void addContact(Person newContanct);
     Person *searchContact(std::string name);
+    void displaySearchResuslts(Person matchesContacts[], int numberOfMatches);
     void viewContacts() const;
+    int getNumberOfContacts() const;
     void run();
 };
 

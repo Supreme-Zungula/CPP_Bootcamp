@@ -120,19 +120,15 @@ std::string Person::getPhoneNumber() const
     return (phoneNumber);
 }
 
-void Person::setBirthdate(int day, int month, int year)
+void Person::setBirthdate(std::string dob)
 {
-    if ((day >= 1 && day <= 31) && (month >= 1 && month <= 12) && (year >= 1900))
+    if (!dob.empty())
     {
-        if (month == 2 && day > 29)
-        {
-            std::cout << "Come on February does not have more than 29 days\n";
-        }
-        birthdate = new Date(day, month, year);
+        birthdate = dob;
     }
 }
 
-Date *Person::getBirthdate() const
+std::string  Person::getBirthdate() const
 {
     return (birthdate);
 }
