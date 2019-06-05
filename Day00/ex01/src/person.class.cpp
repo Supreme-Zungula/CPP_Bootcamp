@@ -105,13 +105,9 @@ std::string Person::getEmail() const
 
 void Person::setPhoneNumber(std::string number)
 {
-    if (number.length() == 10)
+    if (!number.empty())
     {
         phoneNumber = number;
-    }
-    else
-    {
-        std::cout << "Phone number must be 10 digits long without spaces\n";
     }
 }
 
@@ -128,7 +124,7 @@ void Person::setBirthdate(std::string dob)
     }
 }
 
-std::string  Person::getBirthdate() const
+std::string Person::getBirthdate() const
 {
     return (birthdate);
 }
@@ -158,6 +154,7 @@ void Person::setDarkestSecret(std::string secret)
     darkestSecret = secret;
 }
 
-std::string Person::getDarkestSecret() const{
+std::string Person::getDarkestSecret() const
+{
     return (darkestSecret);
 }

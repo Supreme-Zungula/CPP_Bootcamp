@@ -39,13 +39,23 @@ void Phonebook::addContact(Person newContact)
 void Phonebook::searchLoop() const
 {
     int userInput;
-    Person *currentContact = new Person();
 
+    if (numberOfContacts == 0)
+    {
+        std::cout << "\nContacts list empty.\n";
+        
+        return;
+    }
     while (true)
     {
-        std::cout << "Enter an index number to view contact or -1 to exit.\n";
+        std::cout << "\nEnter an index number to view contact or -1 to exit.\n\n";
+        viewContacts();
+        std::cout << "\n";
+        std::cin >> userInput;
         if (std::cin.good())
         {
+            std::cin.clear();
+            std::cin.ignore(INT_MAX, '\n');
             if (userInput == -1)
             {
                 break;
@@ -58,6 +68,12 @@ void Phonebook::searchLoop() const
             {
                 std::cout << "Invalid input\n";
             }
+        }
+        else
+        {
+            std::cout << "Invalid input.\n";
+            std::cin.clear();
+            std::cin.ignore(INT_MAX, '\n');
         }
     }
 }
@@ -89,20 +105,45 @@ Person Phonebook::searchContactByIndex(int index)
 
 void Phonebook::viewContacts() const
 {
-    int i = 0;
 
     if (numberOfContacts == 0)
     {
-        std::cout << "Contact list empty\n";
+        std::cout << "\nContact list empty\n";
     }
 
-    std::cout << "Index\tFirstname\tLastname\tNickname\n";
-    while (i < numberOfContacts)
+    int count = 0;
+    std::string name;
+    std::string surname;
+    std::string nickname;
+
+    std::cout << std::setfill(' ') << "|" << std::setw(10) << "Index";
+    std::cout << std::setfill(' ') << "|" << std::setw(10) << "First name";
+    std::cout << std::setfill(' ') << "|" << std::setw(10) << "Last name";
+    std::cout << std::setfill(' ') << "|" << std::setw(10) << "Nickname" << "|\n";
+
+    while (count < numberOfContacts)
     {
-        std::cout << std::setw(10) << i << std::setw(10) << contacts[i].getFirstname();
-        std::cout << std::setw(10) << contacts[i].getLastname();
-        std::cout << std::setw(10) << contacts[i].getNickname() << '\n';
-        i++;
+        name = contacts[count].getFirstname();
+        surname = contacts[count].getLastname();
+        nickname = contacts[count].getNickname();
+
+        if (name.length() > 9)
+        {
+            name.replace(9, name.length(), ".");
+        }
+        if (surname.length() > 9)
+        {
+            surname.replace(9, surname.length(), ".");
+        }
+        if (nickname.length() > 9)
+        {
+            nickname.replace(9, nickname.length(), ".");
+        }
+        std::cout << std::setfill(' ') << "|" << std::setw(10) << count;
+        std::cout << std::setfill(' ') << "|" << std::setw(10) << name;
+        std::cout << std::setfill(' ') << "|" << std::setw(10) << surname;
+        std::cout << std::setfill(' ') << "|" << std::setw(10) << nickname << "|\n";
+        count++;
     }
 }
 
@@ -121,8 +162,7 @@ void Phonebook::viewTop4Contacts() const
     std::cout << std::setfill(' ') << "|" << std::setw(10) << "Index";
     std::cout << std::setfill(' ') << "|" << std::setw(10) << "First name";
     std::cout << std::setfill(' ') << "|" << std::setw(10) << "Last name";
-    std::cout << std::setfill(' ') << "|" << std::setw(10) << "Nickname"
-              << "|\n";
+    std::cout << std::setfill(' ') << "|" << std::setw(10) << "Nickname" << "|\n";
 
     while (count < numberOfContacts && count < 4)
     {
@@ -145,7 +185,7 @@ void Phonebook::viewTop4Contacts() const
         std::cout << std::setfill(' ') << '|' << std::setw(10) << count;
         std::cout << std::setfill(' ') << '|' << std::setw(10) << name;
         std::cout << std::setfill(' ') << '|' << std::setw(10) << surname;
-        std::cout << std::setfill(' ') << '|' << std::setw(10) << nickname;
+        std::cout << std::setfill(' ') << '|' << std::setw(10) << nickname << "|";
         count++;
     }
 }
@@ -174,7 +214,7 @@ void Phonebook::displaySearchResuslts(Person matchingContacts[])
     }
 }
 
-void Phonebook::showContactDetails(Person contact)
+void Phonebook::showContactDetails(Person contact) const
 {
     std::cout << "First name: " << contact.getFirstname() << '\n';
     std::cout << "Last name: " << contact.getLastname() << '\n';

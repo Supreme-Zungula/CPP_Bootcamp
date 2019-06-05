@@ -19,7 +19,7 @@
 
 class Person
 {
-private:
+private: 
     /* data */
     std::string     firstname;
     std::string     lastname;

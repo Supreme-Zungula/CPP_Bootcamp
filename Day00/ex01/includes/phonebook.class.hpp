@@ -36,7 +36,7 @@ public:
     void displaySearchResuslts(Person matchesContacts[]);
     void viewContacts() const;
     void viewTop4Contacts() const;
-    void showContactDetails(Person contact);
+    void showContactDetails(Person contact) const;
     int getNumberOfContacts() const;
     int getSearchResultsLen();
     void searchLoop() const;

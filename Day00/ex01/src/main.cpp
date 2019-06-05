@@ -11,13 +11,18 @@
 /* ************************************************************************** */
 
 #include "../includes/phonebook.class.hpp"
-
+void flush()
+{
+    std::cin.clear();
+    std::cin.ignore(INT_MAX, '\n');
+}
 void displayOptions()
 {
-    std::cout << "Enter a command you want from the list below\n";
-    std::cout << "ADD" << std::endl;
-    std::cout << "SEARCH" << std::endl;
-    std::cout << "EXIT" << std::endl;
+    std::cout << "Enter a command you want from the list below.\n";
+    std::cout << "1. ADD" << std::endl;
+    std::cout << "2. SEARCH" << std::endl;
+    std::cout << "3. EXIT" << std::endl;
+    std::cout << ":";
 }
 
 void addContactDetails(Phonebook &myPhonebook)
@@ -26,54 +31,52 @@ void addContactDetails(Phonebook &myPhonebook)
     Person newContact;
     Date dob;
 
-    std::cout << "Enter first name: ";
-    std::cin >> userInput;
+    std::cout << "First name: ";
+    getline(std::cin, userInput);
     newContact.setFirstname(userInput);
 
-    std::cout << "Enter last name: ";
-    std::cin >> userInput;
+    std::cout << "Last name: ";
+    getline(std::cin, userInput);
     newContact.setLastname(userInput);
 
-    std::cout << "Enter nickname: ";
-    std::cin >> userInput;
+    std::cout << "Nickname: ";
+    getline(std::cin, userInput);
     newContact.setNickname(userInput);
 
-    std::cout << "Enter login: ";
-    std::cin >> userInput;
+    std::cout << "Login: ";
+    getline(std::cin, userInput);
     newContact.setLogin(userInput);
 
-    std::cout << "Enter postal address: ";
+    std::cout << "Postal address: ";
     std::getline(std::cin, userInput);
     newContact.setPostalAddress(userInput);
 
-    std::cout << "Enter email address: ";
-    std::cin >> userInput;
+    std::cout << "Email address: ";
+    getline(std::cin, userInput);
     newContact.setEmail(userInput);
 
-    std::cout << "Enter phone number: ";
-    std::cin >> userInput;
+    std::cout << "Phone number: ";
+    getline(std::cin, userInput);
     newContact.setPhoneNumber(userInput);
 
-    std::cout << "Enter birthdate in format dd/mm/yyyy: ";
-    std::cin >> userInput;
+    std::cout << "Birthdate: ";
+    getline(std::cin, userInput);
     newContact.setBirthdate(userInput);
 
-    std::cout << "Enter favourite meal: ";
+    std::cout << "Favourite meal: ";
     std::getline(std::cin, userInput);
     newContact.setFavouriteMeal(userInput);
 
-    std::cout << "Enter underwear colour: ";
-    std::cin >> userInput;
+    std::cout << "Underwear colour: ";
+    getline(std::cin, userInput);
     newContact.setUnderwearColour(userInput);
 
-    std::cout << "Enter your darkest secret: ";
+    std::cout << "Your darkest secret: ";
     std::getline(std::cin, userInput);
     newContact.setDarkestSecret(userInput);
 
     myPhonebook.addContact(newContact);
 }
-
-
 
 int main()
 {
