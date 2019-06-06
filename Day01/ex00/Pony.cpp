@@ -49,4 +49,5 @@ std::string Pony::viewWeapon() const
 std::string Pony::useWeapon()
 {
     std::string message = "You just got killed with a " + weapon + " by a pony named " + name + "\n";
+    return (message);
 }
