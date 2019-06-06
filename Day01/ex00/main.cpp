@@ -13,18 +13,24 @@
 #include "Pony.hpp"
 void stack()
 {
+
     Pony pony;
-    pony.useWeapon();
+    std::cout << "Created Pony object in stack memory\n";
+    std::cout << pony.useWeapon() << std::endl;
 
     pony.changeWeapon("Hammer");
+    std::cout << "Changed pony weapon.\n";
     pony.setName("Sledgehammer");
-    pony.useWeapon();
+    std::cout << "Changed pony name.\n";
+    std::cout << pony.useWeapon() << std::endl;
 }
 
 void heap()
 {
+
     Pony *weaponisePony = new Pony("Jelly bean", "water gun");
-    weaponisePony->useWeapon();
+    std::cout << "Created object in heap memory\n";
+    std::cout << weaponisePony->useWeapon() << std::endl;
 }
 
 int main()
