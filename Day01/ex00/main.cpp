@@ -1,27 +1,35 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ex01.cpp                                           :+:      :+:    :+:   */
+/*   main.cpp                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: yzungula <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2019/06/06 09:40:18 by yzungula          #+#    #+#             */
-/*   Updated: 2019/06/06 09:40:21 by yzungula         ###   ########.fr       */
+/*   Created: 2019/06/06 09:36:39 by yzungula          #+#    #+#             */
+/*   Updated: 2019/06/06 09:36:43 by yzungula         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <iostream>
-#include <string>
-
-void memoryLeak()
+#include "Pony.hpp"
+void stack()
 {
-    std::string *panthere = new std::string("String panthere");
-    std::cout << *panthere << std::endl;
-    delete panthere;
+    Pony pony;
+    pony.useWeapon();
+
+    pony.changeWeapon("Hammer");
+    pony.setName("Sledgehammer");
+    pony.useWeapon();
+}
+
+void heap()
+{
+    Pony *weaponisePony = new Pony("Jelly bean", "water gun");
+    weaponisePony->useWeapon();
 }
 
 int main()
 {
-    memoryLeak();
+    stack();
+    heap();
     return 0;
 }

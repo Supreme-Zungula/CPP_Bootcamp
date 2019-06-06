@@ -1,27 +1,36 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ex01.cpp                                           :+:      :+:    :+:   */
+/*   Pony.hpp                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: yzungula <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2019/06/06 09:40:18 by yzungula          #+#    #+#             */
-/*   Updated: 2019/06/06 09:40:21 by yzungula         ###   ########.fr       */
+/*   Created: 2019/06/06 09:36:22 by yzungula          #+#    #+#             */
+/*   Updated: 2019/06/06 09:36:24 by yzungula         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
+#ifndef __PONY__
+#define __PONY__
+
 #include <iostream>
 #include <string>
-
-void memoryLeak()
+class Pony
 {
-    std::string *panthere = new std::string("String panthere");
-    std::cout << *panthere << std::endl;
-    delete panthere;
-}
+private:
+    /* data */
+    std::string name;
+    std::string weapon;
 
-int main()
-{
-    memoryLeak();
-    return 0;
-}
+public:
+    Pony();
+    Pony(std::string ponyName, std::string newWeapon);
+    ~Pony();
+    void setName(std::string name);
+    std::string getName() const;
+    void changeWeapon(std::string weaponName);
+    std::string viewWeapon() const;
+    std::string useWeapon();
+};
+
+#endif
