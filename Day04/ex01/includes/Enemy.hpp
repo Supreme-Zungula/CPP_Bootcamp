@@ -7,13 +7,14 @@ class Enemy
 {
 private:
     /* data */
-    std::string const & _type;
-    int                 _hitPoints;
+    std::string const &_type;
+    int _hitPoints;
 
 public:
-    Enemy(int hp, std::string const & type);
+    Enemy();
+    Enemy(int hp, std::string const &type);
     virtual ~Enemy();
-    std::string  const &getType() const;
+    std::string const &getType() const;
     int getHP() const;
     virtual void takeDamage(int);
 };

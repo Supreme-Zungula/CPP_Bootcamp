@@ -7,7 +7,7 @@ class AWeapon
 {
 private:
     /* data */
-    std::string     _name;
+    std::string const   &_name;
     int             _apCost;
     int             _damage;
 public:
@@ -18,6 +18,7 @@ public:
     virtual AWeapon &operator=(AWeapon const &rifle) = 0;
     int getAPCost() const;
     int getDamage() const;
+    std::string const &getName() const;
     virtual void attack() const = 0;
 };
 

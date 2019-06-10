@@ -4,7 +4,7 @@
 #include <string>
 #include "Enemy.hpp"
 
-class SuperMutant
+class SuperMutant : public Enemy
 {
 private:
     /* data */
@@ -12,6 +12,7 @@ private:
     int                 _hitPoints;
 
 public:
+    SuperMutant();
     SuperMutant(int hp, std::string const & type);
     virtual ~SuperMutant();
     void takeDamage(int);

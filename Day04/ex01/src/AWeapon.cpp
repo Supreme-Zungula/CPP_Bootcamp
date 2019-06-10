@@ -1,17 +1,15 @@
 #include "../includes/AWeapon.hpp"
 
-AWeapon::AWeapon()
+AWeapon::AWeapon() : _name("")
 {
 }
 
 AWeapon::AWeapon(std::string const &name, int apcost, int damage) : _name(name), _apCost(apcost), _damage(damage)
 {
-    this->_name = name;
-    this->_apCost = apcost;
-    this->_damage = damage;
+     
 }
 
-AWeapon::AWeapon(AWeapon const &weapon)
+AWeapon::AWeapon(AWeapon const &weapon) : _name("")
 {
     *this = weapon;
 }
