@@ -24,9 +24,9 @@ public:
     ~Map();
     Map& operator=(Map &map);
     void initMap();
-    void setMapWindowStartPos(int x, int y);
+    void setMapWindowStartPos(unsigned int x, unsigned int y);
     void setMapWindowStartPos(Position startPos);
-    Position &getMapWindowStartPos() const;
+    Position &getMapWindowStartPos();
 
     void setMapWidth(unsigned int w);
     unsigned int getMapWidth() const;

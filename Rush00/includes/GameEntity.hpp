@@ -18,10 +18,7 @@ public:
     void setPosition(int x = 0, int y = 0);
     void setPosition(Position newPos);
     Position &getPosition() const;
-    virtual void moveUp() = 0;
-    virtual void moveDown() = 0;
-    virtual void moveLeft() = 0;
-    virtual void moveRight() = 0;
+    virtual void moveUp() ;
 };
 
 #endif
