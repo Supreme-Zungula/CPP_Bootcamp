@@ -5,6 +5,7 @@
 #include <string>
 
 class Form;
+
 class Bureaucrat
 {
 private:
@@ -32,14 +33,20 @@ std::ostream &operator<<(std::ostream &os, Bureaucrat const &srcObj);
 class GradeTooHighException : public std::exception
 {
 public:
-    GradeTooHighException();
+    GradeTooHighException() throw();
+    GradeTooHighException(const GradeTooHighException &) throw();
+    GradeTooHighException &operator=(const GradeTooHighException &) throw();
+    virtual ~GradeTooHighException() throw();
     virtual const char *what() const throw();
 };
 
 class GradeTooLowException : public std::exception
 {
 public:
-    GradeTooLowException();
+    GradeTooLowException() throw();
+    GradeTooLowException(const GradeTooLowException &) throw();
+    GradeTooLowException &operator=(const GradeTooLowException &) throw();
+    virtual ~GradeTooLowException() throw();
     virtual const char *what() const throw();
 };
 #endif

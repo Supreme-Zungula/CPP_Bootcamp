@@ -1,11 +1,12 @@
 #include <iostream>
 #include "../includes/Form.hpp"
 
-Form::Form() : _name(""), _signed(false), _executingGrade(0), _signingGrade(0)
+Form::Form() : _name(), _signed(false), _signingGrade(), _executingGrade()
 {
 }
 
-Form::Form(std::string const name, int signingGrade, int exGrade) : _name(name), _signed(false)
+Form::Form(std::string const name, int signingGrade, int exGrade) : 
+    _name(name), _signed(false), _signingGrade(signingGrade), _executingGrade(exGrade)
 {
     if (signingGrade < 1 || exGrade < 1)
     {
@@ -15,16 +16,12 @@ Form::Form(std::string const name, int signingGrade, int exGrade) : _name(name),
     {
         throw GradeTooLowException();
     }
-    _signingGrade = signingGrade;
-    _executingGrade = exGrade;
-
     std::cout << "A form has been created.\n";
 }
 
-Form::Form(Form const &form) : _name(form.getName()), _signed(form.getSigned())
+Form::Form(Form const &form) : _name(form.getName()), 
+    _signed(form.getSigned()), _signingGrade(form.getSigningGrade()), _executingGrade(form.getExecutingGrade())
 {
-    _signingGrade = form.getSigningGrade();
-    _executingGrade = form.getExecutingGrade();
 }
 
 Form::~Form()
@@ -37,8 +34,6 @@ Form &Form::operator=(Form const &newForm)
     if (this != &newForm)
     {
         this->_signed = newForm.getSigned();
-        this->_executingGrade = newForm.getExecutingGrade();
-        this->_signingGrade = newForm.getSigningGrade();
     }
     return (*this);
 }

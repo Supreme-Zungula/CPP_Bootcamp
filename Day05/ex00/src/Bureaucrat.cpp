@@ -80,7 +80,29 @@ int Bureaucrat::getGrade() const
     return (_grade);
 }
 
-GradeTooLowException::GradeTooLowException() : std::exception()
+GradeTooLowException::GradeTooLowException() throw() : std::exception()
+{
+}
+
+GradeTooLowException::GradeTooLowException(const GradeTooLowException &gradeExcept) throw()
+{
+    if (this != &gradeExcept)
+    {
+        *this = gradeExcept;
+    }
+}
+
+GradeTooLowException &GradeTooLowException::operator=(const GradeTooLowException &gradeExcept) throw()
+{
+    if (this != &gradeExcept)
+    {
+        *this = gradeExcept;
+    }
+
+    return (*this);
+}
+
+GradeTooLowException::~GradeTooLowException() throw()
 {
 }
 
@@ -89,7 +111,28 @@ const char *GradeTooLowException::what() const throw()
     return ("Grade too low.");
 }
 
-GradeTooHighException::GradeTooHighException() : std::exception()
+GradeTooHighException::GradeTooHighException() throw() : std::exception()
+{
+}
+
+GradeTooHighException::GradeTooHighException(const GradeTooHighException &gradeExcept) throw()
+{
+    if (this != &gradeExcept)
+    {
+        *this = gradeExcept;
+    }
+}
+
+GradeTooHighException &GradeTooHighException::operator=(const GradeTooHighException &gradeExcept) throw()
+{
+    if (this != &gradeExcept)
+    {
+        *this = gradeExcept;
+    }
+    return (*this);
+}
+
+GradeTooHighException::~GradeTooHighException() throw()
 {
 }
 
